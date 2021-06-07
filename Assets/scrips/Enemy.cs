@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Resetearmenu()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.8f);
         Time.timeScale = 0;
         menu.SetActive(true);
     }

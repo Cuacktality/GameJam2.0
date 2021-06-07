@@ -9,23 +9,60 @@ public class Player : MonoBehaviour
     public float jump;
     private bool saltar;
     private float horizontal;
+    private SpriteRenderer flip;
+    private Animator anim;
+    private bool resetearSalto;
     
     void Start()
     {
         myRig = GetComponent<Rigidbody2D>();
-        
+        flip = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
    
     void Update()
     {
+        myRig.velocity = new Vector2(horizontal * speed, myRig.velocity.y);
         horizontal = Input.GetAxis("Horizontal");
-        myRig.velocity = new Vector2(horizontal*speed, myRig.velocity.y);
-        if (Input.GetButtonDown("Jump")&&saltar==true)
+        Mover();
+        Saltar();
+        
+    }
+    private void Mover()
+    {
+        
+        if (horizontal != 0)
+        {
+            anim.SetBool("Mover", true);
+        }
+        else
+        {
+            anim.SetBool("Mover", false);
+        }
+        if (horizontal > 0)
+        {
+            flip.flipX = false;
+            
+        }
+        if (horizontal < 0)
+        {
+            flip.flipX = true;
+            
+        }
+        
+    }
+    void Saltar()
+    {
+        if (Input.GetButtonDown("Jump") && saltar == true)
         {
             myRig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
+            anim.SetBool("Saltar", true);
         }
-
+        else
+        {
+            anim.SetBool("Saltar", false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -46,10 +83,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            
-            Destroy(this.gameObject);
+            speed=0;
+            jump = 0;
+            anim.SetTrigger("Morir");
+            Destroy(this.gameObject,1.4f);
             
         }
     }
-   
+     
+
 }
