@@ -16,7 +16,6 @@ public class Items : MonoBehaviour
         
     }
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
@@ -24,8 +23,6 @@ public class Items : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 }
