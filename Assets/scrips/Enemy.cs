@@ -22,9 +22,9 @@ public class Enemy : MonoBehaviour
     
     IEnumerator IniciarCorutina()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.2f);
         Myrig.velocity = new Vector2(speed, Myrig.velocity.y);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, 0.05f);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, 0.01f);
         
     }
     IEnumerator Resetearmenu()
