@@ -7,21 +7,25 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D Myrig;
     public float speed;
     public GameObject menu, boton;
+    public Transform target;
     void Start()
     {
         Myrig = GetComponent<Rigidbody2D>();
-    }
+            }
 
     
     void Update()
     {
+        Debug.Log(speed);
         StartCoroutine(IniciarCorutina());
     }
     
     IEnumerator IniciarCorutina()
     {
         yield return new WaitForSeconds(1f);
-        Myrig.velocity = new Vector2(speed, Myrig.velocity.y);
+        //Myrig.velocity = new Vector2(speed, Myrig.velocity.y);
+        transform.position = Vector3.MoveTowards(transform.position, target.position,  speed);
+        
     }
     IEnumerator Resetearmenu()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Player : MonoBehaviour
     private SpriteRenderer flip;
     private Animator anim;
     private bool resetearSalto;
+
+    public string scorestring = "Score: ";
+    public Text textScore;
+    private int score ;
     
     void Start()
     {
@@ -27,6 +32,16 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         Mover();
         Saltar();
+        Scoretext();
+        
+        
+    }
+    void Scoretext()
+    {
+        if (textScore != null)
+        {
+            textScore.text = scorestring + score.ToString();
+        }
         
     }
     private void Mover()
@@ -89,7 +104,12 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject,1.4f);
             
         }
+        if (collision.gameObject.tag == "Items")
+        {
+            score++;
+        }
     }
-     
+   
+
 
 }
