@@ -35,6 +35,6 @@ public class StartMenu : MonoBehaviour {
         fader.gameObject.SetActive (true);
         fdAnim.SetBool ("Fade", true);
         yield return new WaitUntil (() => fader.color.a == 1);
-        SceneManager.LoadScene ("SampleScene");
+        SceneManager.LoadScene ("Level3");
     }
 }

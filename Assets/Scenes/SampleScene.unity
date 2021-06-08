@@ -12072,7 +12072,7 @@ PrefabInstance:
     - target: {fileID: 4498793288718237477, guid: d2760fad9b95d6b42aa5fdf32c903230,
         type: 3}
       propertyPath: speed
-      value: 8.5
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 4498793288718237477, guid: d2760fad9b95d6b42aa5fdf32c903230,
         type: 3}
@@ -12148,6 +12148,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8835378949396599713, guid: 26f12a54e9b52724b9dc2574da710139,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8835378949396599715, guid: 26f12a54e9b52724b9dc2574da710139,
         type: 3}
       propertyPath: m_Name
@@ -12158,5 +12163,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 464406994}
+    - target: {fileID: 8835378949396599719, guid: 26f12a54e9b52724b9dc2574da710139,
+        type: 3}
+      propertyPath: nombre
+      value: Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26f12a54e9b52724b9dc2574da710139, type: 3}
